@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>You're a Kudo Superstar! 🚀</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      background: linear-gradient(90deg, #FF9543, #FF5733);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .header img {
+      max-height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .content {
+      padding: 30px;
+      color: #444;
+    }
+
+    .content h2 {
+      font-size: 22px;
+      margin-top: 0;
+      color: #FF5733;
+    }
+
+    .content p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .badge {
+      background: #fff3e6;
+      border-radius: 50px;
+      padding: 20px;
+      margin: 25px 0;
+      text-align: center;
+      border: 3px solid #FF9543;
+      position: relative;
+    }
+
+    .kudo-count {
+      font-size: 48px;
+      font-weight: bold;
+      color: #FF5733;
+      margin: 10px 0;
+      line-height: 1;
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FF9543;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 25px 0;
+      background: linear-gradient(90deg, #FF9543, #FF5733);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(255, 87, 51, 0.25);
+      transition: transform 0.2s;
+    }
+
+    .footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #777;
+    }
+
+
+
+    .unsubscribe {
+      margin-top: 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    .unsubscribe-title {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+
+    .unsubscribe-note {
+      font-size: 12px;
+      color: #999;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .unsubscribe-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: transparent;
+      color: #3300ff;
+      font-size: 13px;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .unsubscribe-button:hover {
+      background-color: #f5f5f5;
+      color: #666;
+    }
+
+    /* Only works in email clients that support media queries */
+    @media screen and (max-width:480px) {
+
+      .user-rank-table,
+      .user-rank-row,
+      .user-rank-cell {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      .user-rank-name {
+        font-size: 18px !important;
+      }
+
+      .user-rank-cell img {
+        margin: 0 auto !important;
+      }
+
+      .impact-stats td {
+        display: block !important;
+        width: 100% !important;
+        padding: 10px 0 !important;
+        text-align: center !important;
+        border-bottom: 1px solid #eee;
+      }
+
+      .impact-stats td:last-child {
+        border-bottom: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <table class="header" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center">
+          <img src="{{brandLogoURL}}" alt="Cheer Champion Logo" style="max-height: 50px; margin-bottom: 10px;">
+          <h1 style="margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; color: white;">
+            You're a Recognition Rockstar! 🌟
+          </h1>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Main Content -->
+    <table class="content" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <h2 style="font-size: 22px; margin-top: 0; color: #FF5733;">Way to go, {{UserName}}!</h2>
+          <p style="font-size: 16px; line-height: 1.6;">
+            In <strong>{{lastMonthName}}</strong>, you earned the <span
+              style="font-weight:700;color:#FF5733;">#{{position}} spot</span> among all Cheer Champions - that's
+            seriously impressive! 🎉
+          </p>
+
+          <!-- User Rank Card -->
+          <table class="user-rank-table" width="100%" cellpadding="0" cellspacing="0"
+            style="background:#FFF9F5;border-radius:12px;margin:25px 0;border-left:4px solid #FF9543;">
+            <tr class="user-rank-row">
+              <!-- Profile image + name -->
+              <td class="user-rank-cell" style="padding:15px;vertical-align:middle;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td
+                      style="width:70px;height:70px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#FF9543,#FF5733);border:3px solid white;">
+                      <img src="{{ProfileImage}}" alt="{{UserName}}'s profile" width="70" height="70"
+                        style="display:block;border-radius:50%;">
+                    </td>
+                    <td style="padding-left:15px;vertical-align:middle;">
+                      <div style="font-size:16px;font-weight:bold;color:#FF5733;">#{{position}} Rank</div>
+                      <div style="font-size:20px;font-weight:600;color:#333;word-break:break-word;">{{UserName}}</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+              <!-- Kudos circle -->
+              <td class="user-rank-cell" style="padding:15px;text-align:center;vertical-align:middle;">
+                <div
+                  style="width:70px;height:70px;border-radius:50%;background:#FFEEE0;border:3px solid #FFD4B8;color:#FF5733;font-weight:700;display:inline-block;text-align:center;">
+                  <div style="font-size:24px;line-height:40px;">{{kudosCount}}</div>
+                  <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.5px;line-height:10px;">Kudos
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Impact Stats -->
+          <table class="impact-stats" width="100%" cellpadding="0" cellspacing="0" style="margin: 20px 0;">
+            <tr>
+              <!-- Stat 1 -->
+              <td width="33%" style="padding: 15px; text-align: center; vertical-align: top;">
+                <div style="font-size: 24px; margin-bottom: 5px;">🏅</div>
+                <div style="font-weight: 600; color: #333;">Top Performer</div>
+                <small style="color: #777; font-size: 12px;">in your organization</small>
+              </td>
+
+              <!-- Stat 2 -->
+              <td width="33%" style="padding: 15px; text-align: center; vertical-align: top;">
+                <div style="font-size: 24px; margin-bottom: 5px;">💖</div>
+                <div style="font-weight: 600; color: #333;">Heart Multiplier</div>
+                <small style="color: #777; font-size: 12px;">10x positive impact</small>
+              </td>
+
+              <!-- Stat 3 -->
+              <td width="33%" style="padding: 15px; text-align: center; vertical-align: top;">
+                <div style="font-size: 24px; margin-bottom: 5px;">✨</div>
+                <div style="font-weight: 600; color: #333;">Joy Architect</div>
+                <small style="color: #777; font-size: 12px;">official status</small>
+              </td>
+            </tr>
+          </table>
+
+          <p style="font-size: 16px; line-height: 1.6;">Your recognition superpowers are changing the vibe. Here's the
+            magic you sparked:</p>
+
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="padding-bottom: 5px;">🚀 <strong>Lifted team spirits</strong> with every shoutout</td>
+            </tr>
+            <tr>
+              <td style="padding-bottom: 5px;">💡 <strong>Inspired others</strong> to appreciate more</td>
+            </tr>
+            <tr>
+              <td>🏆 <strong>Set a new gold standard</strong> for kindness and praise</td>
+            </tr>
+          </table>
+
+          <!-- CTA Button -->
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td align="center" style="padding: 15px 0;">
+                <a href="https://cheerchampion.com/" class="cta-button"
+                  style="background-color: #FF5733; border-radius: 50px; color: white; padding: 12px 24px;text-decoration: none; font-weight: bold; display: inline-block;">
+                  🌟 Keep the Cheers Going
+                </a>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Hot Tip -->
+          <table width="100%" cellpadding="0" cellspacing="0"
+            style="background: #FFF5F0; border-radius: 10px; margin-top: 20px;">
+            <tr>
+              <td style="padding: 15px; text-align: center;">
+                <p style="margin: 0; font-weight: 600; color: #FF5733;">🔥 Hot Tip:</p>
+                <p style="margin: 8px 0 0 0;">Try recognizing someone who hasn't received a kudo this month - you'll
+                  make their whole week!</p>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Footer -->
+          <table class="footer" width="100%" cellpadding="0" cellspacing="0"
+            style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #FFD4B8; font-size: 13px; color: #666; text-align: center; line-height: 1.5;">
+            <tr>
+              <td>
+                <div style="font-weight: 500; color: #FF5733;">💌 Thanks for spreading the cheer!</div>
+                <div>Every kudo you send makes the world a little brighter.</div>
+                <br>
+                <div style="color: #999;">
+                  — <strong style="color:#FF5733;">Team Cheer Champion</strong> 🌟
+                  <br>
+                  <em>#AppreciationMatters</em>
+                </div>
+                <br>
+                <div style="font-size: 11px; color: #aaa;">
+                  © 2025 Cheer Champion · Creating ripple effects of joy
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="unsubscribe">
+
+                  <div class="unsubscribe-title">
+                    <p>Stop receiving these updates:</p>
+                    <a href="https://cheerchampion.com/unsubscribe/{{userId}}" class="unsubscribe-button">
+                      Unsubscribe
+                    </a>
+                  </div>
+                  <div class="unsubscribe-note">
+                    You'll still receive important account-related emails
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

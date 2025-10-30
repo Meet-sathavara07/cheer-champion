@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheer Champion OTP Verification</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .header {
+      background: #FF9543;
+      color: white;
+      padding: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 10px 10px 0 0;
+    }
+    .otp {
+      font-size: 28px;
+      font-weight: bold;
+      color: #FF9543;
+      background: #ffe5d0;
+      padding: 12px 24px;
+      border-radius: 8px;
+      display: inline-block;
+      margin: 20px 0;
+      letter-spacing: 3px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 12px 20px;
+      margin-top: 20px;
+      background: #FF9543;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #e87c36;
+    }
+    .footer {
+      font-size: 12px;
+      color: #666;
+      margin-top: 20px;
+      padding: 15px;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">OTP Verification</div>
+    <p class="message">You asked to join cheer_champion. To complete your registration, use this verification code:</p>
+    <div class="otp">{{otp}}</div>
+    <p class="message">This OTP is valid for 5 minutes. Please do not share it with anyone.</p>
+    <div class="footer">If you didn’t request this, please ignore this email.</div>
+  </div>
+</body>
+</html>

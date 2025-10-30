@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.cheerChampion",
+      "sha256_cert_fingerprints":
+        ["E6:7B:6F:1C:E8:B9:F9:7E:39:F7:34:FE:F6:AF:89:46:04:3A:D4:73:62:1F:5A:35:4B:FD:13:0B:C9:23:A6:9F","FE:65:0E:7A:52:42:EE:72:D8:84:6B:5B:3F:D5:C2:4A:B1:7D:80:76:17:5D:89:DF:E0:55:F2:88:77:7B:95:B0"]
+    }
+  }
+]

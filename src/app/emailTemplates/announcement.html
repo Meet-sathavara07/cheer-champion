@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcement from CheerChampion</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #444;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF9543 0%, #FF5733 100%);
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+            transform: rotate(30deg);
+        }
+
+        .content {
+            padding: 15px;
+        }
+
+        .announcement-card {
+            background: #FFF9F5;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(255, 149, 67, 0.1);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #FF9543, #FF5733);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF9543 0%, #FF5733 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(255, 149, 67, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 149, 67, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .footer {
+            background: linear-gradient(to right, #FFF5F0, #FFE4D9);
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+            color: #777;
+            border-top: 1px solid #FFD4B8;
+        }
+
+        .badge {
+            background: #fff3e6;
+            border-radius: 50px;
+            padding: 15px 25px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px dashed #FF9543;
+            display: inline-block;
+        }
+
+        .feature-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            background: #FFE4D9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FF5733;
+            font-weight: bold;
+        }
+
+        .user-info {
+            background: linear-gradient(to right, #FFF5F0, #FFE4D9);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 149, 67, 0.1);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            opacity: 0.7;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .highlight-box {
+            background: linear-gradient(to right, rgba(255, 149, 67, 0.1), rgba(255, 87, 51, 0.1));
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #FF5733;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #FFE4D9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FF5733;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #FF5733;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* NEW STYLES FOR IMPROVEMENTS */
+        .image-container {
+            position: relative;
+            width: 100%;
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #FFE4D9;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .image-caption {
+            opacity: 1;
+        }
+
+        .countdown {
+            background: #fff3e6;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 25px 0;
+            text-align: center;
+            border: 1px solid #FFD4B8;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .countdown-unit {
+            background: white;
+            border-radius: 8px;
+            padding: 10px;
+            min-width: 50px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FF5733;
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .testimonial {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #FF9543;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #FFE4D9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FF5733;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF5733 0%, #E83A14 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* FIX FOR MESSAGE DISPLAY */
+        .message-content {
+            line-height: 1.7;
+            font-size: 16px;
+            color: #555;
+            white-space: pre-line;
+            /* This will preserve line breaks */
+            word-wrap: break-word;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            border-left: 3px solid #FF9543;
+        }
+
+
+        .unsubscribe {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .unsubscribe-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #3300ff;
+            font-size: 13px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .unsubscribe-button:hover {
+            background-color: #f5f5f5;
+            color: #666;
+        }
+
+
+        .unsubscribe-note {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        @media screen and (max-width: 480px) {
+            .content {
+                padding: 25px;
+            }
+
+            .header {
+                padding: 25px 15px;
+            }
+
+            .announcement-card {
+                padding: 20px;
+            }
+
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+
+            .countdown-unit {
+                min-width: 40px;
+            }
+
+            .countdown-value {
+                font-size: 20px;
+            }
+
+            .message-content {
+                padding: 12px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <!-- Dynamic Brand Logo -->
+            <img src="{{brandLogoURL}}" alt="CheerChampion Logo"
+                style="max-height: 55px; margin-bottom: 15px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
+            <h1
+                style="margin: 0; font-size: 28px; color: white; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+
+                <!-- Personalized Greeting -->
+                Hello, {{userName}}! 👋
+            </h1>
+            <p style="margin: 10px 0 0; opacity: 0.9; font-weight: 300;">Spreading positivity and recognition</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h2 style="color: #FF5733; margin-top: 0; text-align: center; font-weight: 600; font-size: 24px;">
+                <!-- Dynamic Title -->
+                {{title}} 🎊
+            </h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">We have something special to share with you
+                today!</p>
+
+
+
+            <div class="announcement-card">
+                <!-- Fixed Message Content with proper line breaks -->
+                <div class="message-content">
+                    {{message}}
+                </div>
+
+                <!-- Enhanced Image Container -->
+                <div class="image-container">
+                    <img src="{{imageUrl}}" alt="Announcement Visual">
+                    <div class="image-caption">Check out our exciting new update!</div>
+                </div>
+
+
+
+                <!-- Highlight Box -->
+                <div class="highlight-box">
+                    <h3 style="color: #FF5733; margin-top: 0; font-weight: 600;">✨ What This Means For You</h3>
+                    <p style="margin: 0; color: #555;">As a valued member of our community, you'll be among the first to
+                        experience these exciting updates and benefits.</p>
+                </div>
+
+
+
+                <!-- Call to Action -->
+                <div style="text-align: center; margin: 35px 0 15px 0;">
+                    <a href="{{baseURL}}" style="color: white;" class="cta-button">Explore Now →</a>
+                    <p style="font-size: 14px; color: #888; margin-top: 15px;">Don't miss out on this special
+                        opportunity!</p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p style="margin: 0 0 10px 0; font-weight: 600; color: #FF5733;">Thank you for using CheerChampion! 🎉</p>
+            <p style="margin: 0 0 15px 0; color: #999; font-size: 14px;">
+                Making workplaces more appreciative, compassionate, and joyful.
+            </p>
+            <p style="margin: 0; font-size: 12px; color: #aaa;">
+                © 2025 Cheer Champion · All rights reserved · <a href="#"
+                    style="color: #FF9543; text-decoration: none;">Privacy Policy</a>
+            </p>
+            <div class="unsubscribe">
+
+                <div class="unsubscribe-title">
+                    <p>Stop receiving these updates:</p>
+                    <a href="https://cheerchampion.com/unsubscribe/{{userId}}" class="unsubscribe-button">
+                        Unsubscribe
+                    </a>
+                </div>
+                <div class="unsubscribe-note">
+                    You'll still receive important account-related emails
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

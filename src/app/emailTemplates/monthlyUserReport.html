@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your {{lastMonthName}} Kudo Impact Report</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #444;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      background: linear-gradient(90deg, #FF9543, #FF5733);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .card {
+      background: #FFF9F5;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 4px solid #FF9543;
+    }
+
+    .total-kudos {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #FFEEE0;
+      border: 3px solid #FFD4B8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .kudos-count {
+      font-size: 32px;
+      font-weight: bold;
+      color: #FF5733;
+    }
+
+    .kudos-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #FF5733;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #FF9543;
+      margin: 0;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0 0 0;
+      text-align: center;
+    }
+
+    .stat-meta {
+      font-size: 12px;
+      color: #FF5733;
+      margin: 5px 0 0 0;
+      text-align: center;
+    }
+
+    .impact-message {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px auto 0 auto;
+      border: 1px solid #FFD4B8;
+      max-width: 90%;
+    }
+
+    .goal-container {
+      margin-top: 15px;
+    }
+
+    .goal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .progress-bar {
+      background: #f0f0f0;
+      border-radius: 6px;
+      height: 8px;
+      margin-top: 5px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #FF5733;
+    }
+
+    .positivity-block {
+      background: #FFF5F0;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #FF9543, #FF5733);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 16px;
+      box-shadow: 0 3px 10px rgba(255, 149, 67, 0.3);
+    }
+
+    .footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #777;
+      border-top: 1px solid #FFD4B8;
+    }
+
+
+    .unsubscribe {
+      margin-top: 25px;
+      border-top: 1px solid #ddd;
+    }
+
+    .unsubscribe-title {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+
+    .unsubscribe-note {
+      font-size: 12px;
+      color: #999;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .unsubscribe-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: transparent;
+      color: #3300ff;
+      font-size: 13px;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .unsubscribe-button:hover {
+      background-color: #f5f5f5;
+      color: #666;
+    }
+
+
+    @media screen and (max-width: 480px) {
+      .content {
+        padding: 20px;
+      }
+
+      .profile-text {
+        text-align: center !important;
+      }
+
+      .stat-table {
+        width: 100% !important;
+      }
+
+      .stat-cell {
+        display: block !important;
+        width: 100% !important;
+        padding-bottom: 15px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <img src="{{brandLogoURL}}" alt="CheerChampion Logo" style="max-height: 50px; margin-bottom: 10px;"
+        onerror="this.style.display='none'">
+      <h1 style="margin: 0; font-size: 24px; color: white;">
+        Your {{lastMonthName}} Cheer Champion Recap 🎉
+
+      </h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <h2 style="color: #FF5733; margin-top: 15px; text-align: center;">
+        Fantastic job, {{UserName}}! Your impact last month truly made a difference. </h2>
+      <p style="text-align: center; margin-bottom: 25px; font-size: 16px; color: #555;">
+        You gave <strong style="color:#FF5733;">{{totalKudosCount}} recognitions</strong> in {{lastMonthName}}!
+        That's {{totalKudosCount}} times you made someone feel valued at work.
+        Keep it up - your appreciation matters more than you know.
+      </p>
+
+      <!-- Profile Card -->
+      <table role="presentation" cellpadding="0" cellspacing="0" width="100%" class="user-rank-table"
+        style="background:#FFF9F5;border-radius:12px;margin:25px 0;border-left:4px solid #FF9543;">
+        <tr class="user-rank-row">
+          <!-- Profile image + name -->
+          <td class="user-rank-cell" style="padding:15px;vertical-align:middle;">
+            <table cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+              <tr>
+                <td
+                  style="width:70px;height:70px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#FF9543,#FF5733);border:3px solid white;">
+                  <img src="{{ProfileImage}}" alt="{{UserName}}'s profile" width="70" height="70"
+                    style="display:block;border-radius:50%;">
+                </td>
+                <td style="padding-left:15px;vertical-align:middle;">
+                  <div style="font-size:18px;font-weight:bold;color:#FF5733;">{{UserName}}</div>
+                  <div class="user-rank-name" style="font-size:14px;font-weight:600;color:#333;word-break:break-word;">
+                    Using CheerChampion since {{createdDate}}</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+
+          <!-- Kudos circle -->
+        </tr>
+        <td class="user-rank-cell" style="padding:15px;text-align:center;vertical-align:middle;">
+          <div
+            style="width:70px;height:70px;border-radius:50%;background:#FFEEE0;border:3px solid #FFD4B8;color:#FF5733;font-weight:700;display:inline-block;text-align:center;">
+            <div style="font-size:24px;line-height:40px;">{{totalKudosCount}}</div>
+            <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.5px;line-height:10px;">Kudos</div>
+          </div>
+        </td>
+      </table>
+
+      <!-- Recognition Section -->
+      <table class="card" width="100%" cellpadding="0" cellspacing="0" border="0"
+        style="background: linear-gradient(135deg, #FFF9F5, #FFEEE0); border: 1px dashed #FF9543;">
+        <tr>
+          <td align="center" style="padding-bottom: 15px;">
+            <h3 style="color: #FF5733; margin-top: 0; font-size: 20px;">Your Wave of Appreciation 🌊</h3>
+          </td>
+        </tr>
+
+        <!-- Sent/Received Kudos -->
+        <tr>
+          <td align="center">
+            <table class="stat-table" width="80%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td class="stat-cell" width="50%" align="center" style="padding-bottom: 10px;">
+                  <p class="stat-value">{{sentKudosCount}}</p>
+                  <p class="stat-label">Kudos You Shared</p>
+                </td>
+                <td class="stat-cell" width="50%" align="center" style="padding-bottom: 10px;">
+                  <p class="stat-value">{{receivedKudosCount}}</p>
+                  <p class="stat-label">Kudos You Received</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Meta info -->
+        <tr>
+          <td align="center" style="padding-bottom: 15px;">
+            <p class="stat-meta">
+              <span>Last kudo sent: {{lastSendAt}}</span>
+              <span style="padding: 0 5px;">|</span>
+              <span>You’re inspiring every day!</span>
+            </p>
+          </td>
+        </tr>
+
+        <!-- Likes -->
+        <tr>
+          <td align="center">
+            <table width="80%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center">
+                  <p class="stat-value">{{LikesCount}}</p>
+                  <p class="stat-label">Hearts You’ve Given ❤️</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Impact Message -->
+        <tr>
+          <td align="center" style="padding-top: 20px;">
+            <div class="impact-message">
+              <p style="margin: 0; color: #555; font-size: 15px;">
+                You're making work better for everyone around you.
+                <strong style="color: #FF5733;">Let’s keep this beautiful momentum going!</strong>
+              </p>
+
+              <!-- Goal Completion -->
+              <div class="goal-container" style="margin-top: 16px; font-size: 14px; color: #666;">
+
+                <!-- Goal Target Label -->
+                <div style="margin-bottom: 6px; font-weight: bold; color: #333;">
+                  🎯 This month’s goal: Send at least <span style="color: #FF5733;">{{kudosGoal}}</span> Kudos
+                </div>
+
+                <div class="goal-row" style="display: flex; justify-content: space-between; align-items: center;">
+                  <span><strong>Monthly Goal:</strong> {{kudosSent}} / {{kudosGoal}} Kudos</span>
+                </div>
+                <span style="color: #FF5733; font-weight: bold;">{{goalPercentage}}%</span>
+                <div class="progress-bar"
+                  style="display: flex; background-color: #f0f0f0; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 6px;">
+                  <div class="progress-fill" style="width: {{goalPercentage}}%; background-color: #FF5733;"></div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+
+      <!-- Positivity Block -->
+      <div class="positivity-block" style="margin: 20px 0;">
+        <p style="margin: 0; font-weight: 600; color: #FF5733;">
+          Because of you, every day holds a little more hope, joy, and a reason to believe in the power of human
+          connection. </p>
+        <p style="margin: 10px 0 0 0; color:#555;">
+          Together, we’re creating a culture where gratitude is celebrated and kindness is contagious.
+          Your presence in this journey makes the world brighter for everyone around you.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; margin: 30px 0;">
+        <a href="https://www.cheerchampion.com" class="cta-button"
+          style="background-color: #FF5733; color: white; padding: 12px 24px;text-decoration: none; font-weight: bold; display: inline-block;">
+          🌟 See Your Full Impact & Keep Spreading Joy →
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div style="font-weight: 500; color: #FF5733;">
+        💖 You make kindness unstoppable!
+      </div>
+      <div>Thanks for championing recognition every day.
+      </div>
+      <br>
+      — <strong style="color:#FF5733;">Team Cheer Champion
+      </strong> 🌟<br>
+      <em>#CheerForward
+      </em>
+      <br><br>
+      <div style="font-size: 11px; color: #aaa;">
+        © 2025 Cheer Champion · Inspiring everyday acts of appreciation
+
+
+      </div>
+
+      <div class="unsubscribe">
+
+        <div class="unsubscribe-title">
+          <p>Stop receiving these updates:</p>
+          <a href="https://cheerchampion.com/unsubscribe/{{userId}}" class="unsubscribe-button">
+            Unsubscribe
+          </a>
+        </div>
+        <div class="unsubscribe-note">
+          You'll still receive important account-related emails
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

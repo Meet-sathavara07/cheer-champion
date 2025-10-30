@@ -1,0 +1,261 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-libre: "Libre Franklin", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-comfortaa: "Comfortaa", cursive;
+  --color-primary: #FF9543;
+  --color-primary-light: #FDEFCC;
+  --color-secondary: #60A6E4;
+  --color-secondary-dark: #3E7DB4;
+  --color-secondary-light: #E9F4FF;
+  --color-input-bg: #F4F3EF;
+  --color-600: #2B2B2B;
+  --color-500: #2A2A2A;
+  --color-400: #A5A5A5;
+  --color-sub-title: #818181;
+  --color-200: #A4A4A4;
+  --color-100: #BDBDBD;
+  --color-border: #DAD8D6;
+  --color-border-gray: #BBBBBB;
+  --color-placeholder: #868686;
+}
+
+@layer components {
+  .btn {
+    @apply cursor-pointer hover:opacity-70;
+  }
+
+  /* .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 active:bg-gray-400;
+  }
+
+  .btn-outline {
+    @apply border border-blue-600 text-blue-600 hover:bg-blue-100 active:bg-blue-200;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 active:bg-red-800;
+  } */
+}
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* color-scheme: light; */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    /* --background: #0a0a0a;
+    --foreground: #ededed; */
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+/* .scrollbar {
+  scrollbar-width:thin;
+  scrollbar-color: #8F8F8F #D9D9D9;
+} */
+
+
+/* For Chrome, EDGE, Opera, Others */
+.style-scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.style-scrollbar::-webkit-scrollbar-track {
+  background: #D9D9D9;
+  border-radius: 9px;
+}
+
+.style-scrollbar::-webkit-scrollbar-thumb {
+  background: #8F8F8F;
+  border-radius: 9px;
+}
+
+/* Instagram-like heart animation */
+@keyframes instagramHeart {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  15% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+
+  30% {
+    transform: scale(0.95);
+  }
+
+  45%,
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-instagram-heart {
+  animation: instagramHeart 800ms cubic-bezier(0.65, 0, 0.34, 1.5);
+}
+
+.heart-icon {
+  transition: all 0.3s ease;
+}
+
+.heart-icon:hover {
+  transform: scale(1.1);
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -16px;
+  /* Gutter size */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 16px;
+  /* Gutter size */
+  background-clip: padding-box;
+}
+
+/* Style for individual items */
+.my-masonry-grid_column>div {
+  margin-bottom: 16px;
+  /* Vertical spacing between items */
+}
+
+/* Ensure full-width on small screens */
+@media (max-width: 640px) {
+  .my-masonry-grid {
+    margin-left: -8px;
+    /* Smaller gutter for mobile */
+  }
+
+  .my-masonry-grid_column {
+    padding-left: 8px;
+    /* Smaller gutter for mobile */
+  }
+
+  .my-masonry-grid_column>div {
+    margin-bottom: 8px;
+    /* Smaller vertical spacing for mobile */
+  }
+}
+
+/* Ensure proper alignment for larger screens */
+@media (min-width: 768px) {
+  .my-masonry-grid {
+    margin-left: -24px;
+    /* Larger gutter for larger screens */
+  }
+
+  .my-masonry-grid_column {
+    padding-left: 24px;
+    /* Larger gutter for larger screens */
+  }
+
+  .my-masonry-grid_column>div {
+    margin-bottom: 24px;
+    /* Larger vertical spacing for larger screens */
+  }
+}
+
+/* Example styling for KudoCard */
+.kudo-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.my-masonry-grid {
+  display: flex;
+}
+
+@media (max-width: 640px) {
+  .my-masonry-grid {
+    display: block;
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+    filter: brightness(0.8);
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+    filter: brightness(0.8);
+  }
+}
+
+.animate-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes progress {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}

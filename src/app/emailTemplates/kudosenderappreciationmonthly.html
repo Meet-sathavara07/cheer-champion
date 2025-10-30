@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>You've Made Someone's Day!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #FF9543 0%, #FF6B35 100%);
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+    }
+
+    .header img {
+      max-height: 50px;
+      margin-bottom: 15px;
+    }
+
+    .header h1 {
+      color: white;
+      font-size: 28px;
+      font-weight: 700;
+      margin: 10px 0;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+    }
+
+    .content {
+      padding: 40px;
+      text-align: left;
+    }
+
+    .content h2 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .content p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #FF6B35;
+      font-weight: 600;
+    }
+
+    .stats-container {
+      background-color: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 25px 0;
+      text-align: center;
+      border-left: 4px solid #FF9543;
+    }
+
+    .stats-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .cta-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(90deg, #FF9543, #FF5733);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(255, 111, 72, 0.35);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 111, 72, 0.45);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px 40px;
+      font-size: 14px;
+      color: #888;
+      background-color: #f9f9f9;
+      border-top: 1px solid #eee;
+      line-height: 1.6;
+    }
+
+    .signature {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .unsubscribe {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    .unsubscribe-title {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+
+    .unsubscribe-note {
+      font-size: 12px;
+      color: #999;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .unsubscribe-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: transparent;
+      color: #3300ff;
+      font-size: 13px;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .unsubscribe-button:hover {
+      background-color: #f5f5f5;
+      color: #666;
+    }
+
+
+    .emoji {
+      font-size: 24px;
+      margin: 0 5px;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 650px) {
+      .content {
+        padding: 30px 20px;
+      }
+
+      .header {
+        padding: 30px 20px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .cta-button {
+        padding: 14px 30px;
+        font-size: 16px;
+      }
+
+      .footer {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="{{brandLogoURL}}" alt="Cheer Champion Logo" />
+      <h1>Your {{kudosCount}} kudos in {{lastMonthName}} made a difference! <span class="emoji">🌟</span><span
+          class="emoji">🎉</span></h1>
+    </div>
+
+    <div class="content">
+      <h2>Hi {{UserName}},</h2>
+      <p>We just wanted to take a moment to appreciate you.</p>
+
+      <div class="stats-container">
+        <p class="stats-text">In <span class="highlight">{{lastMonthName}}</span>, you sent <span
+            class="highlight">{{kudosCount}}</span> Kudos using Cheer Champion!</p>
+      </div>
+
+      <p>That means you helped spread positivity, encouragement, and gratitude across your community.</p>
+      <p><span class="emoji">👏</span> That's no small thing.</p>
+      <p>Your kind words not only lifted others, but they also set a powerful example. You're helping build a culture
+        where appreciation and recognition come naturally — and we're truly thankful to have you with us.</p>
+      <p>Keep the cheers going and continue making an impact, one Kudo at a time.</p>
+
+      <div class="cta-container">
+        <a class="cta-button" href="https://cheerchampion.com/">👉 Send More Kudos</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>With appreciation,</p>
+      <p class="signature">Team Cheer Champion <span class="emoji">💚</span></p>
+      <p>Feel Good. Do Good. Cheer Someone Today.</p>
+
+      <div class="unsubscribe">
+
+        <div class="unsubscribe-title">
+          <p>Stop receiving these updates:</p>
+          <a href="https://cheerchampion.com/unsubscribe/{{userId}}" class="unsubscribe-button">
+            Unsubscribe
+          </a>
+        </div>
+        <div class="unsubscribe-note">
+          You'll still receive important account-related emails
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

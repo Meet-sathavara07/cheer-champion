@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>You’ve Received a Kudo!</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    table {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(90deg, #FF9543, #FF5733);
+      padding: 25px;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .logo {
+      max-width: 150px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .content {
+      padding: 30px;
+    }
+    .message {
+      font-size: 18px;
+      /* font-weight: bold; */
+      color: #555;
+    }
+    .kudo-box {
+      margin-bottom: 20px;
+      padding: 20px;
+      background: #fef5e7;
+      border-radius: 10px;
+      text-align: left;
+      border-left: 5px solid #FF9543;
+    }
+    .kudo-img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 14px 28px;
+      margin-top: 20px;
+      background: linear-gradient(90deg, #FF9543, #FF5733);
+      color: white !important;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .cta-button:hover {
+      background: linear-gradient(90deg, #e87c36, #ff401a);
+    }
+    .footer {
+      font-size: 14px;
+      color: #666;
+      margin-top: 20px;
+      padding: 20px;
+      border-top: 2px solid #ddd;
+      /* background: #f9f9f9; */
+    }
+    .footer a {
+      color: #FF5733;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0">
+          <!-- Header -->
+          <tr>
+            <td class="header" align="center">
+              <img src="{{brandLogoURL}}" alt="Cheer Champion Logo" class="logo">
+              🎉 You’ve Received a Kudo! 🎉
+            </td>
+          </tr>
+          <!-- Content -->
+          <tr>
+            <td>
+                <p class="message">Hey <strong>{{recipientName}}</strong>,</p>
+                <p class="message">🌟 <strong>{{sender}}</strong> just sent you a heartfelt message! 🌟</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="content" align="center">
+              <!-- Kudo Details -->
+              <div class="kudo-box">
+                <p style="font-size: 18px; font-weight: bold; color: #FF5733;">📩 Message from <strong>{{sender}}</strong>:</p>
+               <div style="text-align: center;">
+                <img src="{{kudoImageURL}}" alt="Kudo Image" style="display: block; margin: 0 auto; max-width: 100%; border-radius: 8px;">
+              </div>
+                <p style="font-size: 16px; color: #555; line-height: 1.6;">"{{kudoMessage}}"</p>
+              </div>
+
+              <p class="message">👏 Keep the positivity going!
+                Just like <strong>{{sender}}</strong> appreciated you, why not spread the joy? Send a Cheer to someone who inspires you!</p>
+
+              <!-- Call to Action -->
+              <a href="https://cheerchampion.com/feeds/{{kudoID}}" class="cta-button">🎊 View Your Kudo & Send One Back! 🎊</a>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td class="footer" align="center">
+              Thank you for being an **inspiration** in the **Cheer Champion community**! 💫  
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>The timing's never perfect. The message always is.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #FF9543 0%, #FF6B35 100%);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+    }
+
+    .header img {
+      max-height: 50px;
+      margin-bottom: 15px;
+    }
+
+    .header h1 {
+      color: white;
+      font-size: 28px;
+      font-weight: 700;
+      margin: 10px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .content {
+      padding: 40px;
+      text-align: left;
+    }
+
+    .content h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .cta-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(90deg, #FF9543, #FF5733);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(255, 111, 72, 0.35);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 111, 72, 0.45);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 25px 40px;
+      font-size: 13px;
+      color: #888;
+      background-color: #f9f9f9;
+      border-top: 1px solid #eee;
+    }
+
+    .unsubscribe {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+
+    .unsubscribe-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: transparent;
+      color: #3300ff;
+      font-size: 13px;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .unsubscribe-button:hover {
+      background-color: #f5f5f5;
+      color: #666;
+    }
+
+
+    .unsubscribe-note {
+      font-size: 12px;
+      color: #999;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 650px) {
+      .content {
+        padding: 30px 20px;
+      }
+
+      .cta-button {
+        padding: 14px 30px;
+        font-size: 16px;
+      }
+
+      .footer {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="{{brandLogoURL}}" alt="Cheer Champion Logo" />
+      <h1>The timing's never perfect. The message always is.</h1>
+    </div>
+
+    <div class="content">
+      <h2>Hi {{userName}},</h2>
+      <p>
+        Been a while since you sent a thank you through Cheer Champion.
+        Just here to remind you: that small gesture might still be sitting in the back of your mind.
+      </p>
+      <p>
+        Maybe you didn't get around to it. Maybe it didn't feel like the right time.
+      </p>
+      <p>
+        Here's a gentle push. It doesn't need to be long. Or poetic. Just real.
+      </p>
+
+      <div class="cta-container">
+        <a class="cta-button" href="https://cheerchampion.com/">→ Send a quick thank you</a>
+      </div>
+
+      <p style="margin-top: 30px;">
+        Warm, honest words don't go out of style.
+      </p>
+      <p>– Team Cheer Champion</p>
+    </div>
+
+    <div class="footer">
+      <p>You received this email as part of your Cheer Champion account.</p>
+      <p>Let's make appreciation a habit 💚</p>
+
+      <div class="unsubscribe">
+
+        <div class="unsubscribe-title">
+          <p>Stop receiving these updates:</p>
+          <a href="https://cheerchampion.com/unsubscribe/{{userId}}" class="unsubscribe-button">
+            Unsubscribe
+          </a>
+        </div>
+        <div class="unsubscribe-note">
+          You'll still receive important account-related emails
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
