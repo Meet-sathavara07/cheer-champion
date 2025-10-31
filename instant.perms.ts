@@ -51,12 +51,17 @@ const rules = {
     },
   },
   notifications: {
-    bind: ["isRecipient", "auth.id != null && auth.id == data.user_id"],
+    bind: [
+      "isRecipient",
+      "auth.id != null && auth.id == data.user_id",
+      "isAdmin",
+      "auth.email in ['meetsathavara10@gmail.com', 'cp@cheerchampion.com','chetanthumar@gmail.com','cploonker@gmail.com','raj.mansuri@quantuminfoway.com']",
+    ],
     allow: {
-      view: "isRecipient",
-      create: "isRecipient",
-      delete: "isRecipient",
-      update: "isRecipient",
+      view: "isRecipient || isAdmin",
+      create: "isRecipient || isAdmin",
+      delete: "isRecipient || isAdmin",
+      update: "isRecipient || isAdmin",
     },
   },
 } satisfies InstantRules;

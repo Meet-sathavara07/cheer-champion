@@ -13,6 +13,8 @@ const _schema = i.schema({
     }),
     $users: i.entity({
       email: i.string().unique().indexed().optional(),
+      imageURL: i.string().optional(),
+      type: i.string().optional(),
     }),
     kudo_comments: i.entity({
       comment: i.string().optional(),
@@ -34,7 +36,7 @@ const _schema = i.schema({
     }),
     notification_channels: i.entity({
       channel: i.string(),
-      error: i.any().optional(),
+      error: i.string().optional(),
       identifier: i.string().optional(),
       message: i.string().optional(),
       status: i.string().indexed(),
@@ -44,7 +46,7 @@ const _schema = i.schema({
       action_by: i.string().optional(),
       created_at: i.date().indexed(),
       entity_id: i.string().indexed().optional(),
-      entity_type: i.string().indexed(),
+      entity_type: i.string().indexed().optional(),
       frequency: i.string().indexed().optional(),
       is_read: i.boolean().indexed().optional(),
       message: i.string().indexed(),
@@ -103,6 +105,19 @@ const _schema = i.schema({
     }),
   },
   links: {
+    $usersLinkedPrimaryUser: {
+      forward: {
+        on: "$users",
+        has: "one",
+        label: "linkedPrimaryUser",
+        onDelete: "cascade",
+      },
+      reverse: {
+        on: "$users",
+        has: "many",
+        label: "linkedGuestUsers",
+      },
+    },
     kudo_comments$users: {
       forward: {
         on: "kudo_comments",
