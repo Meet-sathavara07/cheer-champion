@@ -35,7 +35,7 @@ const WebPushNotification: React.FC<NotificationProps> = ({
   );
   const { t } = useTranslation();
   const router = useRouter();
-  const defaultImage = "https://www.cheerchampion.com/OpenGraph.png"; // Fallback image
+  const defaultImage = "https://cheer-champion.vercel.app/OpenGraph.png"; // Fallback image
 
   // Handle visibility state changes
   useEffect(() => {

@@ -12,7 +12,7 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
   try {
     const baseURL =
-      process.env.NEXT_PUBLIC_BASE_URL || "https://www.cheerchampion.com";
+      process.env.NEXT_PUBLIC_BASE_URL || "https://cheer-champion.vercel.app";
 
     const { kudoID } = await params;
     const kudoDetails = await getKudoDetails(kudoID);
@@ -41,7 +41,8 @@ export async function generateMetadata({ params }: Props) {
     const senderName = kudoDetails.$users[0].user_profile.name;
     const kudoReceivers = receivers(kudoDetails.kudo_receiver);
     // Randomly select a template
-    const randomTemplate = KudoMetaTemplates[Math.floor(Math.random() * KudoMetaTemplates.length)];
+    const randomTemplate =
+      KudoMetaTemplates[Math.floor(Math.random() * KudoMetaTemplates.length)];
 
     return {
       title: randomTemplate.title(kudoReceivers),

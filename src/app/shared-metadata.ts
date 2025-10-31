@@ -1,5 +1,5 @@
 const baseURL =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://www.cheerchampion.com";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://cheer-champion.vercel.app";
 const previewImage = `${baseURL}/OpenGraph.png`;
 export const openGraphMetaData = {
   type: "website",

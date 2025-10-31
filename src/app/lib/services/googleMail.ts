@@ -38,14 +38,14 @@ const transporter = nodemailer.createTransport({
     user: process.env.GMAIL_USER_EMAIL,
     pass: process.env.GMAIL_APP_PASSWORD, // must be an App Password
   },
-  connectionTimeout: 10000,  // 10s
-  greetingTimeout: 5000,     // wait 5s for server greeting
+  connectionTimeout: 10000, // 10s
+  greetingTimeout: 5000, // wait 5s for server greeting
   // tls: {
   //   rejectUnauthorized: true, // set false only if behind corporate firewall
   // },
-  pool:true,
-  maxConnections:5,
-  maxMessages:100
+  pool: true,
+  maxConnections: 5,
+  maxMessages: 100,
 });
 
 export const sendOtpEmail = async (toEmail: string, otp: string) => {
@@ -424,7 +424,7 @@ export async function emailRemindUsers(inactiveUser: any) {
     emailTemplate
   );
   let emailHtml = fs.readFileSync(templatePath, "utf8").toString();
-  const brandLogo = "https://www.cheerchampion.com/brandLightLogo.png";
+  const brandLogo = "https://cheer-champion.vercel.app/brandLightLogo.png";
   emailHtml = emailHtml.replace("{{brandLogoURL}}", brandLogo);
 
   try {
@@ -474,7 +474,7 @@ export async function emailRemindUser(inactiveUser: any) {
     emailTemplate
   );
   let emailHtml = fs.readFileSync(templatePath, "utf8").toString();
-  const brandLogo = "https://www.cheerchampion.com/brandLightLogo.png";
+  const brandLogo = "https://cheer-champion.vercel.app/brandLightLogo.png";
   emailHtml = emailHtml.replace("{{brandLogoURL}}", brandLogo);
 
   // const updates = [];
@@ -535,7 +535,7 @@ export async function emailActiveKudoUser(
     let emailHtml = fs.readFileSync(templatePath, "utf8").toString();
 
     // Replace template variables
-    const brandLogo = "https://www.cheerchampion.com/brandLightLogo.png";
+    const brandLogo = "https://cheer-champion.vercel.app/brandLightLogo.png";
     emailHtml = emailHtml.replace("{{brandLogoURL}}", brandLogo);
     emailHtml = emailHtml.replace(
       /{{UserName}}/g,
@@ -585,7 +585,7 @@ export async function emailTopSenderUser(
 
   try {
     let emailHtml = fs.readFileSync(templatePath, "utf8").toString();
-    const brandLogo = "https://www.cheerchampion.com/brandLightLogo.png";
+    const brandLogo = "https://cheer-champion.vercel.app/brandLightLogo.png";
     const { email, id, user_profile } = activeUser;
 
     // Replace template variables
@@ -646,7 +646,7 @@ export async function emailTopReceiverUser(
 
   try {
     let emailHtml = fs.readFileSync(templatePath, "utf8").toString();
-    const brandLogo = "https://www.cheerchampion.com/brandLightLogo.png";
+    const brandLogo = "https://cheer-champion.vercel.app/brandLightLogo.png";
     const { email, id, user_profile } = activeUser;
 
     // Replace template variables
@@ -715,7 +715,7 @@ export async function emailNoKudoSentLastWeekReminder(
     );
     let emailHtml = fs.readFileSync(templatePath, "utf8").toString();
 
-    const brandLogo = "https://www.cheerchampion.com/brandLightLogo.png";
+    const brandLogo = "https://cheer-champion.vercel.app/brandLightLogo.png";
     emailHtml = emailHtml.replace("{{brandLogoURL}}", brandLogo);
 
     emailHtml = emailHtml.replace(
@@ -773,7 +773,7 @@ export async function emailMonthlyUserReport(
   try {
     let emailHtml = fs.readFileSync(templatePath, "utf8").toString();
 
-    const brandLogo = "https://www.cheerchampion.com/brandLightLogo.png";
+    const brandLogo = "https://cheer-champion.vercel.app/brandLightLogo.png";
     const { email, id, user_profile } = user;
 
     // Format dates safely
@@ -861,7 +861,7 @@ export async function sendAnnouncementEmail(
 
   try {
     let emailHtml = fs.readFileSync(templatePath, "utf8").toString();
-    const baseURL = "https://www.cheerchampion.com";
+    const baseURL = "https://cheer-champion.vercel.app";
     const defaultImage = `${baseURL}/OpenGraph.png`;
     const brandLogo = `${baseURL}/brandLightLogo.png`;
 

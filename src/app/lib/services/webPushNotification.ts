@@ -121,7 +121,7 @@ export async function dailyWebPushNotification(
     channel: "web_push",
     identifier: pushToken,
   };
-  const baseURLlink = "https://www.cheerchampion.com"; // Switch to "https://www.cheerchampion.com" in prod
+  const baseURLlink = "https://cheer-champion.vercel.app"; // Switch to "https://cheer-champion.vercel.app" in prod
 
   try {
     const unsubscribeURL = `${baseURLlink}/unsubscribe/${userId}`;

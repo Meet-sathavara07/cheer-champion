@@ -29,7 +29,7 @@ const comfortaa = Comfortaa({
 });
 
 const baseURL =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://www.cheerchampion.com";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://cheer-champion.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(baseURL),
   title: {

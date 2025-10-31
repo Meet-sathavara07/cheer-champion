@@ -1307,7 +1307,7 @@ export async function sendReminderWebPushNotification(
   imageUrl?: string,
   userId?: string
 ) {
-  const baseURLlink = "https://www.cheerchampion.com"; // Switch to "https://www.cheerchampion.com" in prod
+  const baseURLlink = "https://cheer-champion.vercel.app"; // Switch to "https://cheer-champion.vercel.app" in prod
   try {
     // For testing, use userId; for production, generate/use a secure token
     const unsubscribeUrl = `${baseURLlink}/unsubscribe/${userId}`;
